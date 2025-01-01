@@ -1,0 +1,140 @@
+\documentclass{jsreport}
+\usepackage{amsmath, amssymb, amsfonts, latexsym}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\mcH}{{\mathcal H}}
+\newcommand{\mcB}{{\mathcal B}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\topic}[1]{\par\bigskip\noindent{\bf $\blacksquare$ #1} \par\medskip}
+\begin{document}
+
+\begin{center}
+\large 『量子情報理論』セミナーで出た疑問点について
+\end{center}
+\begin{flushright}
+2024/12/25 (セミナー第6回まで)
+\end{flushright}
+
+\section{疑問点}
+
+\topic{サポート}
+サポートの定義(p.5)がおかしいのでは?
+\begin{enum}[,$\bullet$]
+- 今の定義では, サポートは$0$か全体にしかならない.
+- サポートに関するp. 8, (1.22)付近の議論は全く成立しない.
+- p. 116 に, 半正定値行列$\rho$に対するサポートの言及がある. (このあたりのサポートに関する議論は筋が通っている)
+\end{enum}
+
+\topic{定義~1.8 (Heisenberg-Wely群)}
+\begin{enum}[,$\bullet$]
+- 「Heisenberg-Weyl演算子は$d=2$の場合にPauli演算子と一致する」 $\leftarrow$ upto scalarでは確かに一致するが, 完全には一致していない. 演算子に関しても upto scalarで一致すれば同じと考えるのか?
+- $d=2$のときのHeisenberg-Weyl群がPauli群と一致するわけでもない. 「一般化Pauli群」と呼ぶのが本当に適切か?
+\end{enum}
+
+\topic{定義~1.9}
+$\sqrt{\ }$や, $\log$が$\C$全体で定義されている訳ではないので, 次のように書いた方が良いのでは?
+\begin{quote}
+「$U\subset \C$を部分集合とする. 正規行列$M\in {\mathcal B}({\mathcal H})$が
+$M=\sum_{j=0}^{d-1}m_j|e_j\rangle\langle e_j|$, ($m_j\in U$)と対角化されるとき, 
+任意の複素数値関数$f\colon U\to \C$に対して, $\cdots$」
+\end{quote}
+
+\topic{量子状態のアンサンブル}
+「量子状態のアンサンブル」という語の定義が書かれていない.
+
+教科書を記述通りに読むならば, (2.27)は「部分系Bを測定したが, 測定結果を知らない」という状況を表している.
+しかし, 本来は「Bを無視してAだけに注目した量子状態」と解釈すべきなのでは?
+
+古典的な確率論における周辺化に近いものという言い方もできる.
+
+
+\topic{系Aでの物理操作}
+「系Aでの物理操作」とは何を意味するか?
+
+例えば, 複合系ABにおいて, エンタングルした量子状態にあったときに,
+「系Bにおける測定を行い, 結果を知らせない」は系Aの物理操作に含めるのかどうか?
+
+
+\newpage
+
+\topic{2.3.1節の論理}
+2.3.1節の冒頭で
+「$\cdots$ という状況が量子論の最も一般的な時間発展になることが分かる.」
+とあるが, これを言うために, 次のことを暗黙の了解としているように見える.
+
+{\bf (暗黙の了解~1)} $\forall A$: 量子系, $\exists E$: 補助系 such that 複合系$AE$の時間発展はユニタリで表せる.
+
+\noindent 恐らく, 「一般的」という語の解釈が, 物理と数学とで異なる. 
+
+\begin{enum}[,$\bullet$]
+- 数学では, それ以外に可能性がない事を論証して, 初めて何かについて一般的に論じたことになる.
+- 物理では, 理論を記述可能な範囲で拡張して行き, その範囲内で最も一般的であることを一般的と称する
+\end{enum}
+
+例えば, 「量子状態をどう記述するか」を考えた場合,
+
+数学的には, 「すべての量子状態は, 量子状態のアンサンブルで表示できる」という事を, 公理や定理などで保証しておかなければ, 「量子状態のアンサンブルで表示できる状態の考察を一般的な考察とは呼べない.
+
+物理的には, これまで考察した中で出てきた最も一般的な形が「量子状態のアンサンブル表示」なのだから, 
+これについて考察すれば, 一般的な状態を考察したことになる
+
+
+今の論理を少し数学寄りに寄せる場合は, 次のように公理を考えるとよい.
+
+{\bf (追加公理~1)} 孤立系において, 測定を伴わない物理プロセスの時間発展はユニタリで書ける.
+
+{\bf (追加公理~2)} 任意の量子系Aは, 適切に補助系Eを追加することで複合系AEを孤立系とできる.
+
+
+\topic{3.1.4節 測度について}
+p. 43 定義~3.7において, $U(\mcH)$上の測度$H$を, $H\colon U(\mcH)\rightarrow[0,1]$のように書いてしまっている.
+その数行下で「ユニタリ群のある部分集合$W\subset U(\mcH)$を選ぶ確率」といった表現も不適切.
+
+「ユニタリ群から$H$に従ってランダム抽出した点が$W$に含まれる確率」という書き方の方が良い?
+
+\topic{3.1.5節 ユニタリデザインの存在}
+
+p. 47の「また, 練習問題~34より, $\cdots$無数に存在することも分かるだろう.」の部分について
+
+$t\ge4$のとき, 一様でないユニタリ$t$-デザインの存在は言えていない. 従って, 
+ユニタリ$t$-デザインが「各$t$に対して無数に存在すること」は練習問題~34からは言えない.
+
+\section{メモ}
+
+\topic{練習問題~6 (p.10)}
+「Heisenberg-Weyl演算子はユニタリだがエルミートではない」とあるが, エルミートにはなり得る.
+「Heisenberg-Weyl演算子はユニタリだがエルミートとは限らない」とすべきでは?
+
+\topic{定理~2.5の証明 (p.24)}
+Schmidt分解に言及する際に「練習問題~17より」という文言を加えた方が良い.
+
+\newpage
+
+\topic{練習問題~31 (p.45)}
+$M^B$が何なのか明示されていない.
+
+$M^B=\Tr_A[M^{AB}]$ とするとよい.
+
+\topic{ユニタリ・デザイン}
+
+p.43の「確率的に選ばれるユニタリを$U\sim \nu$と表記する」部分について, 
+この時点で確率変数という語を出した方が, (数学者にっては)分かりやすい.
+
+確率変数については, p. 111のフットノートで初めて言及される.
+
+\section{誤植}
+\begin{enum}[,$\bullet$]
+- p. 3, l. -4. ブラベクトル$|w\rangle$ $\rightarrow$ $\langle w|$
+- p. 4, l. -5. 複素業ベクトル $\rightarrow$ 複素行ベクトル
+- p. 5, l. -4. 二つの演算子 $\rightarrow$ 三つの演算子
+- p.25, (2.47). $|\rho_1\rangle^{AB}$ $\rightarrow$ $|\rho_1\rangle^{AB'}$
+- p.25, (2.48). $|\rho_2\rangle^{AB}$ $\rightarrow$ $|\rho_2\rangle^{AB'}$
+- p.27, (2.50). $\langle +|+\rangle^A$ $\rightarrow$ $|+\rangle\langle +|^A$
+- p.37, (3.9). $\ds\sup_{|\psi\rangle\in \mcH}$ $\rightarrow$ $\ds\sup_{|\psi\rangle\in \mcH\setminus\{0\}}$
+- p.39, 練習問題~25. 任意の$O\in\mcB(\mcH_n)$ $\rightarrow$ 任意の$O\in\mcB(\mcH)$
+- p.39-40, (3.23),(3.30), (3.31) $c^\ell(j)$ $\rightarrow$ $c^{\ell-1}(j)$
+\end{enum}
+
+
+
+\end{document}
